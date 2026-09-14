@@ -1,0 +1,3161 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="DailyMate - Free online calculators and everyday tools including EMI, GST, discount, percentage, age, BMI, SIP, interest, word counter and password generator.">
+
+    <meta name="keywords"
+        content="DailyMate, free online tools, EMI calculator, GST calculator, discount calculator, percentage calculator, age calculator, BMI calculator, SIP calculator, interest calculator, word counter, password generator">
+
+    <meta name="author" content="Dilkash Singh">
+
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="DailyMate - Free Everyday Tools">
+    <meta property="og:description"
+        content="Simple, fast and free online tools for everyday life.">
+    <meta property="og:type" content="website">
+
+    <title>DailyMate - Free Everyday Tools & Calculators</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark {
+            background: #111827;
+            color: #f9fafb;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            padding: 15px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .creator {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .dark-btn {
+            border: none;
+            background: rgba(255,255,255,0.18);
+            color: white;
+            padding: 9px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            background: white;
+            text-align: center;
+            padding: 75px 20px 55px;
+        }
+
+        body.dark .hero {
+            background: #1f2937;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            color: #111827;
+            margin-bottom: 15px;
+        }
+
+        body.dark .hero h1 {
+            color: white;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #6b7280;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* ================= SEARCH ================= */
+
+        .search-area {
+            width: 92%;
+            max-width: 750px;
+            margin: -25px auto 35px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-box {
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            padding: 8px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+            border: 1px solid #e5e7eb;
+        }
+
+        body.dark .search-box {
+            background: #1f2937;
+            border-color: #374151;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 13px;
+            font-size: 16px;
+            background: transparent;
+            color: inherit;
+        }
+
+        .search-box button {
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 0 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* ================= CONTAINER ================= */
+
+        .container {
+            width: 92%;
+            max-width: 1150px;
+            margin: 40px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .section-title h2 {
+            font-size: 31px;
+            margin-bottom: 7px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+        }
+
+        /* ================= CATEGORIES ================= */
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .category-btn {
+            border: 1px solid #d1d5db;
+            background: white;
+            color: #374151;
+            padding: 9px 17px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        body.dark .category-btn {
+            background: #1f2937;
+            color: white;
+            border-color: #374151;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        /* ================= TOOLS GRID ================= */
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 24px;
+            border-radius: 18px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 7px 25px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        body.dark .tool-card {
+            background: #1f2937;
+            border-color: #374151;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+        }
+
+        .tool-icon {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .tool-card h3 {
+            margin-bottom: 8px;
+            font-size: 21px;
+        }
+
+        .tool-card p {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.5;
+            min-height: 43px;
+            margin-bottom: 18px;
+        }
+
+        .open-btn {
+            width: 100%;
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 11px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .open-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* ================= AD AREA ================= */
+
+        .ad-box {
+            margin: 35px 0;
+            min-height: 90px;
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            background: #f8fafc;
+            font-size: 13px;
+        }
+
+        body.dark .ad-box {
+            background: #1f2937;
+            border-color: #374151;
+        }
+
+        /* ================= CALCULATOR ================= */
+
+        .calculator-section {
+            display: none;
+            margin-top: 40px;
+            scroll-margin-top: 100px;
+        }
+
+        .calculator-box {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+        }
+
+        body.dark .calculator-box {
+            background: #1f2937;
+            border-color: #374151;
+        }
+
+        .calculator-heading {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .calculator-heading h2 {
+            font-size: 30px;
+            margin-bottom: 7px;
+        }
+
+        .calculator-heading p {
+            color: #6b7280;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .text-input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 9px;
+            font-size: 16px;
+            outline: none;
+            background: white;
+            color: #111827;
+        }
+
+        body.dark .form-group input,
+        body.dark .form-group select,
+        body.dark .text-input {
+            background: #111827;
+            color: white;
+            border-color: #4b5563;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .text-input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+        }
+
+        .calculate-btn {
+            width: 100%;
+            border: none;
+            background: linear-gradient(135deg,#2563eb,#7c3aed);
+            color: white;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .reset-btn {
+            width: 100%;
+            margin-top: 10px;
+            border: 1px solid #d1d5db;
+            background: white;
+            color: #374151;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        body.dark .reset-btn {
+            background: #111827;
+            color: white;
+            border-color: #4b5563;
+        }
+
+        .result-box {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 22px;
+            border: 1px solid #e5e7eb;
+        }
+
+        body.dark .result-box {
+            background: #111827;
+            border-color: #374151;
+        }
+
+        .main-result {
+            text-align: center;
+            background: linear-gradient(135deg,#eff6ff,#f5f3ff);
+            padding: 22px;
+            border-radius: 13px;
+            margin-bottom: 18px;
+        }
+
+        .main-result small {
+            color: #6b7280;
+        }
+
+        .main-result h3 {
+            color: #2563eb;
+            font-size: 32px;
+            margin-top: 5px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 3px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-label {
+            color: #6b7280;
+        }
+
+        .result-value {
+            font-weight: bold;
+        }
+
+        .success {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #ecfdf5;
+            color: #047857;
+            text-align: center;
+        }
+
+        .error {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #fef2f2;
+            color: #b91c1c;
+            text-align: center;
+        }
+
+        /* ================= VISUAL BAR ================= */
+
+        .bar {
+            height: 25px;
+            width: 100%;
+            background: #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .bar-one {
+            height: 100%;
+            background: #2563eb;
+        }
+
+        .bar-two {
+            height: 100%;
+            background: #7c3aed;
+        }
+
+        /* ================= TEXT TOOL ================= */
+
+        .text-area {
+            width: 100%;
+            min-height: 220px;
+            padding: 15px;
+            resize: vertical;
+            border: 1px solid #d1d5db;
+            border-radius: 12px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        body.dark .text-area {
+            background: #111827;
+            color: white;
+            border-color: #4b5563;
+        }
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .counter-card {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        body.dark .counter-card {
+            background: #111827;
+        }
+
+        .counter-card strong {
+            display: block;
+            font-size: 22px;
+            color: #2563eb;
+        }
+
+        .counter-card small {
+            color: #6b7280;
+        }
+
+        /* ================= PASSWORD ================= */
+
+        .password-result {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .password-result input {
+            flex: 1;
+        }
+
+        .copy-btn {
+            border: none;
+            background: #7c3aed;
+            color: white;
+            padding: 0 18px;
+            border-radius: 9px;
+            cursor: pointer;
+        }
+
+        /* ================= INFO SECTIONS ================= */
+
+        .info-section {
+            background: white;
+            padding: 35px;
+            margin-top: 50px;
+            border-radius: 18px;
+            border: 1px solid #e5e7eb;
+            line-height: 1.7;
+        }
+
+        body.dark .info-section {
+            background: #1f2937;
+            border-color: #374151;
+        }
+
+        .info-section h2 {
+            margin-bottom: 12px;
+        }
+
+        .info-section p {
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            margin-top: 60px;
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .footer-logo {
+            font-size: 27px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        footer p {
+            color: #d1d5db;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            margin: 18px 0;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width:900px) {
+
+            .tools-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: none;
+            }
+        }
+
+        @media(max-width:600px) {
+
+            header {
+                padding: 14px 5%;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .creator {
+                display: none;
+            }
+
+            .hero {
+                padding: 55px 18px 45px;
+            }
+
+            .hero h1 {
+                font-size: 31px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-box {
+                padding: 20px;
+            }
+
+            .calculator-heading h2 {
+                font-size: 26px;
+            }
+
+            .counter-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .result-row {
+                gap: 10px;
+            }
+
+            .info-section {
+                padding: 22px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        DailyMate
+    </div>
+
+    <div class="creator">
+        Created by Dilkash Singh
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#tools">Tools</a>
+        <a href="#about">About</a>
+
+        <button class="dark-btn" onclick="toggleDarkMode()" id="darkButton">
+            🌙
+        </button>
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <h1>
+        Your Everyday <span>Digital Helper</span>
+    </h1>
+
+    <p>
+        Simple, fast and free online calculators and useful tools
+        designed to make your everyday life easier.
+    </p>
+
+</section>
+
+
+<!-- ================= SEARCH ================= -->
+
+<div class="search-area">
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search a tool... Example: EMI, GST, BMI"
+            onkeyup="searchTools()"
+        >
+
+        <button onclick="searchTools()">
+            Search
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<div class="container">
+
+    <div class="section-title" id="tools">
+
+        <h2>Popular Tools</h2>
+
+        <p>
+            Free tools for finance, health, text and everyday calculations.
+        </p>
+
+    </div>
+
+
+    <!-- CATEGORIES -->
+
+    <div class="categories">
+
+        <button class="category-btn active"
+            onclick="filterCategory('all',this)">
+            All
+        </button>
+
+        <button class="category-btn"
+            onclick="filterCategory('finance',this)">
+            Finance
+        </button>
+
+        <button class="category-btn"
+            onclick="filterCategory('health',this)">
+            Health
+        </button>
+
+        <button class="category-btn"
+            onclick="filterCategory('math',this)">
+            Math
+        </button>
+
+        <button class="category-btn"
+            onclick="filterCategory('text',this)">
+            Text
+        </button>
+
+        <button class="category-btn"
+            onclick="filterCategory('utility',this)">
+            Utility
+        </button>
+
+    </div>
+
+
+    <!-- TOOLS -->
+
+    <div class="tools-grid" id="toolsGrid">
+
+        <div class="tool-card" data-category="finance"
+            data-name="emi loan calculator">
+
+            <div class="tool-icon">🏦</div>
+
+            <h3>EMI Calculator</h3>
+
+            <p>
+                Calculate monthly EMI, total interest and total payment.
+            </p>
+
+            <button class="open-btn"
+                onclick="openTool('emiCalculator')">
+                Open Calculator
+            </button>
+
+        </div>
+
+
+        <div class="tool-card" data-category="finance"
+            data-name="discount calculator">
+
+            <div class="tool-icon">🏷️</div>
+
+            <h3>Discount Calculator</h3>
+
+            <p>
+                Find discount amount, final price and money saved.
+            </p>
+
+            <button class="open-btn"
+                onclick="openTool('discountCalculator')">
+                Open Calculator
+            </button>
+
+        </div>
+
+
+        <div class="tool-card" data-category="finance"
+            data-name="gst calculator">
+
+            <div class="tool-icon">🧾</div>
+
+            <h3>GST Calculator</h3>
+
+            <p>
+                Calculate GST amount and price including or excluding GST.
+            </p>
+
+            <button class="open-btn"
+                onclick="openTool('gstCalculator')">
+                Open Calculator
+            </button>
+
+        </div>
+
+
+        <div class="tool-card" data-category="finance"
+            data-name="sip calculator">
+
+            <div class="tool-icon">📈</div>
+
+            <h3>SIP Calculator</h3>
+
+            <p>
+                Estimate SIP investment value and expected returns.
+            </p>
+
+            <button class="open-btn"
+                onclick="openTool('sipCalculator')">
+                Open Calculator
+            </button>
+
+        </div>
+
+
+        <div class="tool-card" data-category="finance"
+            data-name="simple interest calculator">
+
+            <div class="tool-icon">💰</div>
+
+            <h3>Simple Interest</h3>
+
+            <p>
+                Calculate simple interest and total amount.
+            </p>
+
+            <button class="open-btn"
+                onclick="openTool('simpleInterest')">
+                Open Calculator
+            </button>
+
+        </div>
+
+
+        <div class="tool-card" data-category="finance"
+            data-name="compound interest calculator">
+
+            <div class="tool-icon">💵</div>
+
+            <h3>Compound Interest</h3>
+
+            <p>
+                Calculate compound interest and final amount.
+            </p>
+
+            <button class="open-btn"
+                onclick="openTool('compoundInterest')">
+                Open Calculator
+            </button>
+
+        </div>
+
+
+        <div class="tool-card" data-category="math"
+            data-name="percentage calculator">
+
+            <div class="tool-icon">📊</div>
+
+            <h3>Percentage Calculator</h3>
+
+            <p>
+                Quickly calculate percentage of any number.
+            </p>
+
+            <button class="open-btn"
+                onclick="openTool('percentageCalculator')">
+                Open Calculator
+            </button>
+
+        </div>
+
+
+        <div class="tool-card" data-category="health"
+            data-name="age calculator">
+
+            <div class="tool-icon">🎂</div>
+
+            <h3>Age Calculator</h3>
+
+            <p>
+                Calculate exact age in years, months and days.
+            </p>
+
+            <button class="open-btn"
+                onclick="openTool('ageCalculator')">
+                Open Calculator
+            </button>
+
+        </div>
+
+
+        <div class="tool-card" data-category="health"
+            data-name="bmi calculator">
+
+            <div class="tool-icon">⚖️</div>
+
+            <h3>BMI Calculator</h3>
+
+            <p>
+                Calculate Body Mass Index using height and weight.
+            </p>
+
+            <button class="open-btn"
+                onclick="openTool('bmiCalculator')">
+                Open Calculator
+            </button>
+
+        </div>
+
+
+        <div class="tool-card" data-category="text"
+            data-name="word counter character counter">
+
+            <div class="tool-icon">📝</div>
+
+            <h3>Word Counter</h3>
+
+            <p>
+                Count words, characters, sentences and paragraphs.
+            </p>
+
+            <button class="open-btn"
+                onclick="openTool('wordCounter')">
+                Open Tool
+            </button>
+
+        </div>
+
+
+        <div class="tool-card" data-category="text"
+            data-name="case converter text converter">
+
+            <div class="tool-icon">🔤</div>
+
+            <h3>Case Converter</h3>
+
+            <p>
+                Convert text into uppercase, lowercase or title case.
+            </p>
+
+            <button class="open-btn"
+                onclick="openTool('caseConverter')">
+                Open Tool
+            </button>
+
+        </div>
+
+
+        <div class="tool-card" data-category="utility"
+            data-name="password generator">
+
+            <div class="tool-icon">🔐</div>
+
+            <h3>Password Generator</h3>
+
+            <p>
+                Generate strong random passwords instantly.
+            </p>
+
+            <button class="open-btn"
+                onclick="openTool('passwordGenerator')">
+                Open Tool
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- AD PLACEHOLDER -->
+
+    <div class="ad-box">
+        Advertisement Space
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- EMI -->
+    <!-- ================================================= -->
+
+    <section class="calculator-section" id="emiCalculator">
+
+        <div class="calculator-box">
+
+            <div class="calculator-heading">
+
+                <h2>🏦 EMI Calculator</h2>
+
+                <p>
+                    Calculate monthly EMI and complete loan payment.
+                </p>
+
+            </div>
+
+            <div class="calc-grid">
+
+                <div>
+
+                    <div class="form-group">
+
+                        <label>Loan Amount (₹)</label>
+
+                        <input
+                            type="number"
+                            id="loanAmount"
+                            value="500000"
+                            min="1"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Annual Interest Rate (%)</label>
+
+                        <input
+                            type="number"
+                            id="interestRate"
+                            value="8.5"
+                            min="0"
+                            step="0.01"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Loan Tenure (Years)</label>
+
+                        <input
+                            type="number"
+                            id="loanTenure"
+                            value="5"
+                            min="1"
+                            max="50"
+                        >
+
+                    </div>
+
+                    <button class="calculate-btn"
+                        onclick="calculateEMI()">
+                        Calculate EMI
+                    </button>
+
+                    <button class="reset-btn"
+                        onclick="resetEMI()">
+                        Reset
+                    </button>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <div class="main-result">
+
+                        <small>Monthly EMI</small>
+
+                        <h3 id="emiResult">
+                            ₹0
+                        </h3>
+
+                    </div>
+
+                    <div class="result-row">
+                        <span class="result-label">Loan Amount</span>
+                        <span class="result-value" id="emiLoan">
+                            ₹0
+                        </span>
+                    </div>
+
+                    <div class="result-row">
+                        <span class="result-label">Total Interest</span>
+                        <span class="result-value" id="emiInterest">
+                            ₹0
+                        </span>
+                    </div>
+
+                    <div class="result-row">
+                        <span class="result-label">Total Payment</span>
+                        <span class="result-value" id="emiTotal">
+                            ₹0
+                        </span>
+                    </div>
+
+                    <div class="bar">
+                        <div class="bar-one" id="principalBar"></div>
+                        <div class="bar-two" id="interestBar"></div>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Principal Share</span>
+                        <strong id="principalPercent">0%</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Interest Share</span>
+                        <strong id="interestPercent">0%</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- DISCOUNT -->
+    <!-- ================================================= -->
+
+    <section class="calculator-section" id="discountCalculator">
+
+        <div class="calculator-box">
+
+            <div class="calculator-heading">
+
+                <h2>🏷️ Discount Calculator</h2>
+
+                <p>
+                    Find final price and money saved after discount.
+                </p>
+
+            </div>
+
+            <div class="calc-grid">
+
+                <div>
+
+                    <div class="form-group">
+
+                        <label>Original Price (₹)</label>
+
+                        <input
+                            type="number"
+                            id="originalPrice"
+                            placeholder="Example: 2000"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Discount (%)</label>
+
+                        <input
+                            type="number"
+                            id="discountPercent"
+                            placeholder="Example: 20"
+                            min="0"
+                            max="100"
+                        >
+
+                    </div>
+
+                    <button class="calculate-btn"
+                        onclick="calculateDiscount()">
+                        Calculate Discount
+                    </button>
+
+                </div>
+
+                <div class="result-box">
+
+                    <div class="main-result">
+
+                        <small>Final Price</small>
+
+                        <h3 id="discountFinal">
+                            ₹0
+                        </h3>
+
+                    </div>
+
+                    <div class="result-row">
+                        <span>Original Price</span>
+                        <strong id="discountOriginal">₹0</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Discount Amount</span>
+                        <strong id="discountAmount">₹0</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Money Saved</span>
+                        <strong id="moneySaved">₹0</strong>
+                    </div>
+
+                    <div class="success">
+                        🎉 You save money with this discount!
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- GST -->
+    <!-- ================================================= -->
+
+    <section class="calculator-section" id="gstCalculator">
+
+        <div class="calculator-box">
+
+            <div class="calculator-heading">
+
+                <h2>🧾 GST Calculator</h2>
+
+                <p>
+                    Calculate GST amount and final price.
+                </p>
+
+            </div>
+
+            <div class="calc-grid">
+
+                <div>
+
+                    <div class="form-group">
+
+                        <label>Amount (₹)</label>
+
+                        <input
+                            type="number"
+                            id="gstAmount"
+                            placeholder="Enter amount"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>GST Rate (%)</label>
+
+                        <select id="gstRate">
+
+                            <option value="5">5%</option>
+                            <option value="12">12%</option>
+                            <option value="18" selected>18%</option>
+                            <option value="28">28%</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Calculation</label>
+
+                        <select id="gstType">
+
+                            <option value="add">
+                                Add GST to price
+                            </option>
+
+                            <option value="remove">
+                                Remove GST from price
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <button class="calculate-btn"
+                        onclick="calculateGST()">
+                        Calculate GST
+                    </button>
+
+                </div>
+
+                <div class="result-box">
+
+                    <div class="main-result">
+
+                        <small>Final Amount</small>
+
+                        <h3 id="gstFinal">₹0</h3>
+
+                    </div>
+
+                    <div class="result-row">
+                        <span>Original Amount</span>
+                        <strong id="gstOriginal">₹0</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>GST Amount</span>
+                        <strong id="gstValue">₹0</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>GST Rate</span>
+                        <strong id="gstRateResult">0%</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- SIP -->
+    <!-- ================================================= -->
+
+    <section class="calculator-section" id="sipCalculator">
+
+        <div class="calculator-box">
+
+            <div class="calculator-heading">
+
+                <h2>📈 SIP Calculator</h2>
+
+                <p>
+                    Estimate your SIP investment and expected returns.
+                </p>
+
+            </div>
+
+            <div class="calc-grid">
+
+                <div>
+
+                    <div class="form-group">
+
+                        <label>Monthly Investment (₹)</label>
+
+                        <input
+                            type="number"
+                            id="sipMonthly"
+                            placeholder="5000"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Expected Annual Return (%)</label>
+
+                        <input
+                            type="number"
+                            id="sipRate"
+                            value="12"
+                            step="0.1"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Investment Period (Years)</label>
+
+                        <input
+                            type="number"
+                            id="sipYears"
+                            value="10"
+                        >
+
+                    </div>
+
+                    <button class="calculate-btn"
+                        onclick="calculateSIP()">
+                        Calculate SIP
+                    </button>
+
+                </div>
+
+                <div class="result-box">
+
+                    <div class="main-result">
+
+                        <small>Estimated Value</small>
+
+                        <h3 id="sipValue">₹0</h3>
+
+                    </div>
+
+                    <div class="result-row">
+                        <span>Invested Amount</span>
+                        <strong id="sipInvested">₹0</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Estimated Returns</span>
+                        <strong id="sipReturns">₹0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- SIMPLE INTEREST -->
+    <!-- ================================================= -->
+
+    <section class="calculator-section" id="simpleInterest">
+
+        <div class="calculator-box">
+
+            <div class="calculator-heading">
+
+                <h2>💰 Simple Interest Calculator</h2>
+
+                <p>
+                    Calculate simple interest and total amount.
+                </p>
+
+            </div>
+
+            <div class="calc-grid">
+
+                <div>
+
+                    <div class="form-group">
+                        <label>Principal (₹)</label>
+                        <input type="number" id="siPrincipal">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rate (%)</label>
+                        <input type="number" id="siRate">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Time (Years)</label>
+                        <input type="number" id="siTime">
+                    </div>
+
+                    <button class="calculate-btn"
+                        onclick="calculateSI()">
+                        Calculate
+                    </button>
+
+                </div>
+
+                <div class="result-box">
+
+                    <div class="main-result">
+
+                        <small>Simple Interest</small>
+
+                        <h3 id="siResult">₹0</h3>
+
+                    </div>
+
+                    <div class="result-row">
+                        <span>Total Amount</span>
+                        <strong id="siTotal">₹0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- COMPOUND INTEREST -->
+    <!-- ================================================= -->
+
+    <section class="calculator-section" id="compoundInterest">
+
+        <div class="calculator-box">
+
+            <div class="calculator-heading">
+
+                <h2>💵 Compound Interest Calculator</h2>
+
+                <p>
+                    Calculate compound interest and final amount.
+                </p>
+
+            </div>
+
+            <div class="calc-grid">
+
+                <div>
+
+                    <div class="form-group">
+                        <label>Principal (₹)</label>
+                        <input type="number" id="ciPrincipal">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Annual Rate (%)</label>
+                        <input type="number" id="ciRate">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Time (Years)</label>
+                        <input type="number" id="ciTime">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Compounding</label>
+
+                        <select id="ciCompound">
+
+                            <option value="1">Yearly</option>
+                            <option value="2">Half-Yearly</option>
+                            <option value="4">Quarterly</option>
+                            <option value="12">Monthly</option>
+
+                        </select>
+
+                    </div>
+
+                    <button class="calculate-btn"
+                        onclick="calculateCI()">
+                        Calculate
+                    </button>
+
+                </div>
+
+                <div class="result-box">
+
+                    <div class="main-result">
+
+                        <small>Final Amount</small>
+
+                        <h3 id="ciResult">₹0</h3>
+
+                    </div>
+
+                    <div class="result-row">
+                        <span>Compound Interest</span>
+                        <strong id="ciInterest">₹0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- PERCENTAGE -->
+    <!-- ================================================= -->
+
+    <section class="calculator-section" id="percentageCalculator">
+
+        <div class="calculator-box">
+
+            <div class="calculator-heading">
+
+                <h2>📊 Percentage Calculator</h2>
+
+                <p>
+                    Calculate percentage of any number.
+                </p>
+
+            </div>
+
+            <div class="calc-grid">
+
+                <div>
+
+                    <div class="form-group">
+                        <label>Percentage (%)</label>
+                        <input type="number"
+                            id="percentageValue"
+                            placeholder="20">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Number</label>
+                        <input type="number"
+                            id="percentageNumber"
+                            placeholder="500">
+                    </div>
+
+                    <button class="calculate-btn"
+                        onclick="calculatePercentage()">
+                        Calculate Percentage
+                    </button>
+
+                </div>
+
+                <div class="result-box">
+
+                    <div class="main-result">
+
+                        <small>Result</small>
+
+                        <h3 id="percentageResult">
+                            0
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- AGE -->
+    <!-- ================================================= -->
+
+    <section class="calculator-section" id="ageCalculator">
+
+        <div class="calculator-box">
+
+            <div class="calculator-heading">
+
+                <h2>🎂 Age Calculator</h2>
+
+                <p>
+                    Calculate your exact age.
+                </p>
+
+            </div>
+
+            <div class="calc-grid">
+
+                <div>
+
+                    <div class="form-group">
+
+                        <label>Date of Birth</label>
+
+                        <input
+                            type="date"
+                            id="dateOfBirth"
+                        >
+
+                    </div>
+
+                    <button class="calculate-btn"
+                        onclick="calculateAge()">
+                        Calculate Age
+                    </button>
+
+                </div>
+
+                <div class="result-box">
+
+                    <div class="main-result">
+
+                        <small>Your Age</small>
+
+                        <h3 id="ageResult">
+                            0 Years
+                        </h3>
+
+                    </div>
+
+                    <div class="result-row">
+                        <span>Next Birthday</span>
+                        <strong id="nextBirthday">
+                            -
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- BMI -->
+    <!-- ================================================= -->
+
+    <section class="calculator-section" id="bmiCalculator">
+
+        <div class="calculator-box">
+
+            <div class="calculator-heading">
+
+                <h2>⚖️ BMI Calculator</h2>
+
+                <p>
+                    Calculate your Body Mass Index.
+                </p>
+
+            </div>
+
+            <div class="calc-grid">
+
+                <div>
+
+                    <div class="form-group">
+
+                        <label>Weight (kg)</label>
+
+                        <input
+                            type="number"
+                            id="bmiWeight"
+                            placeholder="70"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Height (cm)</label>
+
+                        <input
+                            type="number"
+                            id="bmiHeight"
+                            placeholder="170"
+                        >
+
+                    </div>
+
+                    <button class="calculate-btn"
+                        onclick="calculateBMI()">
+                        Calculate BMI
+                    </button>
+
+                </div>
+
+                <div class="result-box">
+
+                    <div class="main-result">
+
+                        <small>Your BMI</small>
+
+                        <h3 id="bmiResult">
+                            0
+                        </h3>
+
+                    </div>
+
+                    <div class="success" id="bmiStatus">
+                        Enter your details.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- WORD COUNTER -->
+    <!-- ================================================= -->
+
+    <section class="calculator-section" id="wordCounter">
+
+        <div class="calculator-box">
+
+            <div class="calculator-heading">
+
+                <h2>📝 Word & Character Counter</h2>
+
+                <p>
+                    Count words, characters, sentences and paragraphs.
+                </p>
+
+            </div>
+
+            <textarea
+                id="counterText"
+                class="text-area"
+                placeholder="Type or paste your text here..."
+                oninput="updateCounter()"
+            ></textarea>
+
+            <div class="counter-grid">
+
+                <div class="counter-card">
+                    <strong id="wordCount">0</strong>
+                    <small>Words</small>
+                </div>
+
+                <div class="counter-card">
+                    <strong id="charCount">0</strong>
+                    <small>Characters</small>
+                </div>
+
+                <div class="counter-card">
+                    <strong id="sentenceCount">0</strong>
+                    <small>Sentences</small>
+                </div>
+
+                <div class="counter-card">
+                    <strong id="paragraphCount">0</strong>
+                    <small>Paragraphs</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- CASE CONVERTER -->
+    <!-- ================================================= -->
+
+    <section class="calculator-section" id="caseConverter">
+
+        <div class="calculator-box">
+
+            <div class="calculator-heading">
+
+                <h2>🔤 Case Converter</h2>
+
+                <p>
+                    Quickly change your text case.
+                </p>
+
+            </div>
+
+            <textarea
+                id="caseText"
+                class="text-area"
+                placeholder="Enter your text..."
+            ></textarea>
+
+            <br><br>
+
+            <button class="open-btn"
+                onclick="convertUpper()">
+                UPPERCASE
+            </button>
+
+            <br><br>
+
+            <button class="open-btn"
+                onclick="convertLower()">
+                lowercase
+            </button>
+
+            <br><br>
+
+            <button class="open-btn"
+                onclick="convertTitle()">
+                Title Case
+            </button>
+
+            <br><br>
+
+            <textarea
+                id="caseResult"
+                class="text-area"
+                placeholder="Converted text will appear here..."
+                readonly
+            ></textarea>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- PASSWORD -->
+    <!-- ================================================= -->
+
+    <section class="calculator-section" id="passwordGenerator">
+
+        <div class="calculator-box">
+
+            <div class="calculator-heading">
+
+                <h2>🔐 Password Generator</h2>
+
+                <p>
+                    Generate a strong random password.
+                </p>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Password Length</label>
+
+                <input
+                    type="number"
+                    id="passwordLength"
+                    value="16"
+                    min="6"
+                    max="50"
+                >
+
+            </div>
+
+            <div class="password-result">
+
+                <input
+                    type="text"
+                    id="generatedPassword"
+                    class="text-input"
+                    readonly
+                    placeholder="Your password will appear here"
+                >
+
+                <button class="copy-btn"
+                    onclick="copyPassword()">
+                    Copy
+                </button>
+
+            </div>
+
+            <button class="calculate-btn"
+                onclick="generatePassword()">
+                Generate Password
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="info-section" id="about">
+
+        <h2>About DailyMate</h2>
+
+        <p>
+            DailyMate is a free online platform designed to provide
+            simple and useful tools for everyday life.
+        </p>
+
+        <p>
+            Our goal is to make common calculations and small digital
+            tasks fast, simple and accessible from both mobile phones
+            and computers.
+        </p>
+
+        <p>
+            DailyMate includes finance calculators, health calculators,
+            mathematical tools, text utilities and other useful tools.
+        </p>
+
+    </section>
+
+
+    <!-- ================= PRIVACY ================= -->
+
+    <section class="info-section" id="privacy">
+
+        <h2>Privacy Policy</h2>
+
+        <p>
+            DailyMate is designed to provide useful online tools.
+            Most calculations performed by the website are processed
+            directly in the user's browser.
+        </p>
+
+        <p>
+            We do not ask users to provide unnecessary personal
+            information for normal calculator usage.
+        </p>
+
+        <p>
+            Third-party advertising or analytics services may be added
+            in the future. Such services may use cookies according to
+            their own policies.
+        </p>
+
+    </section>
+
+
+    <!-- ================= TERMS ================= -->
+
+    <section class="info-section" id="terms">
+
+        <h2>Terms & Conditions</h2>
+
+        <p>
+            DailyMate tools are provided for general informational and
+            calculation purposes.
+        </p>
+
+        <p>
+            Users should independently verify important financial,
+            medical or business decisions before relying on calculator
+            results.
+        </p>
+
+        <p>
+            DailyMate does not guarantee that every calculation is
+            suitable for every individual situation.
+        </p>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="info-section" id="contact">
+
+        <h2>Contact</h2>
+
+        <p>
+            For suggestions, feedback or questions regarding DailyMate,
+            users can contact the website owner.
+        </p>
+
+        <p>
+            Created by <strong>Dilkash Singh</strong>.
+        </p>
+
+    </section>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        DailyMate
+    </div>
+
+    <p>
+        Free everyday tools for everyone.
+    </p>
+
+    <div class="footer-links">
+
+        <a href="#home">Home</a>
+
+        <a href="#tools">Tools</a>
+
+        <a href="#about">About</a>
+
+        <a href="#privacy">Privacy</a>
+
+        <a href="#terms">Terms</a>
+
+        <a href="#contact">Contact</a>
+
+    </div>
+
+    <p>
+        © 2026 DailyMate | Created by Dilkash Singh
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   GENERAL FUNCTIONS
+===================================================== */
+
+function money(value) {
+
+    return "₹" + Number(value).toLocaleString("en-IN", {
+        maximumFractionDigits: 2
+    });
+
+}
+
+
+function hideAllCalculators() {
+
+    document.querySelectorAll(".calculator-section")
+        .forEach(function(section) {
+
+            section.style.display = "none";
+
+        });
+
+}
+
+
+function openTool(id) {
+
+    hideAllCalculators();
+
+    let section = document.getElementById(id);
+
+    section.style.display = "block";
+
+    setTimeout(function() {
+
+        section.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }, 50);
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function searchTools() {
+
+    let search =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    let cards =
+        document.querySelectorAll(".tool-card");
+
+    cards.forEach(function(card) {
+
+        let name =
+            card.getAttribute("data-name")
+            .toLowerCase();
+
+        if (name.includes(search)) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   CATEGORY FILTER
+===================================================== */
+
+function filterCategory(category, button) {
+
+    document.querySelectorAll(".category-btn")
+        .forEach(function(btn) {
+
+            btn.classList.remove("active");
+
+        });
+
+    button.classList.add("active");
+
+    document.querySelectorAll(".tool-card")
+        .forEach(function(card) {
+
+            if (
+                category === "all" ||
+                card.getAttribute("data-category") === category
+            ) {
+
+                card.style.display = "block";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+function toggleDarkMode() {
+
+    document.body.classList.toggle("dark");
+
+    let button =
+        document.getElementById("darkButton");
+
+    if (document.body.classList.contains("dark")) {
+
+        button.innerText = "☀️";
+
+        localStorage.setItem("dailyMateDark", "yes");
+
+    } else {
+
+        button.innerText = "🌙";
+
+        localStorage.setItem("dailyMateDark", "no");
+
+    }
+
+}
+
+
+window.addEventListener("load", function() {
+
+    if (
+        localStorage.getItem("dailyMateDark") === "yes"
+    ) {
+
+        document.body.classList.add("dark");
+
+        document.getElementById("darkButton")
+            .innerText = "☀️";
+
+    }
+
+    calculateEMI();
+
+});
+
+
+/* =====================================================
+   EMI
+===================================================== */
+
+function calculateEMI() {
+
+    let principal =
+        parseFloat(
+            document.getElementById("loanAmount").value
+        );
+
+    let rate =
+        parseFloat(
+            document.getElementById("interestRate").value
+        );
+
+    let years =
+        parseFloat(
+            document.getElementById("loanTenure").value
+        );
+
+    if (
+        !principal ||
+        principal <= 0 ||
+        isNaN(rate) ||
+        rate < 0 ||
+        !years ||
+        years <= 0
+    ) {
+
+        return;
+
+    }
+
+    let months = years * 12;
+
+    let monthlyRate = rate / 12 / 100;
+
+    let emi;
+
+    if (monthlyRate === 0) {
+
+        emi = principal / months;
+
+    } else {
+
+        let power =
+            Math.pow(
+                1 + monthlyRate,
+                months
+            );
+
+        emi =
+            principal *
+            monthlyRate *
+            power /
+            (power - 1);
+
+    }
+
+    let totalPayment =
+        emi * months;
+
+    let interest =
+        totalPayment - principal;
+
+    let principalPercent =
+        principal / totalPayment * 100;
+
+    let interestPercent =
+        interest / totalPayment * 100;
+
+
+    document.getElementById("emiResult")
+        .innerText = money(emi);
+
+    document.getElementById("emiLoan")
+        .innerText = money(principal);
+
+    document.getElementById("emiInterest")
+        .innerText = money(interest);
+
+    document.getElementById("emiTotal")
+        .innerText = money(totalPayment);
+
+    document.getElementById("principalBar")
+        .style.width = principalPercent + "%";
+
+    document.getElementById("interestBar")
+        .style.width = interestPercent + "%";
+
+    document.getElementById("principalPercent")
+        .innerText =
+        principalPercent.toFixed(1) + "%";
+
+    document.getElementById("interestPercent")
+        .innerText =
+        interestPercent.toFixed(1) + "%";
+
+}
+
+
+function resetEMI() {
+
+    document.getElementById("loanAmount").value = 500000;
+
+    document.getElementById("interestRate").value = 8.5;
+
+    document.getElementById("loanTenure").value = 5;
+
+    calculateEMI();
+
+}
+
+
+/* =====================================================
+   DISCOUNT
+===================================================== */
+
+function calculateDiscount() {
+
+    let price =
+        parseFloat(
+            document.getElementById("originalPrice").value
+        );
+
+    let discount =
+        parseFloat(
+            document.getElementById("discountPercent").value
+        );
+
+    if (
+        !price ||
+        price <= 0 ||
+        isNaN(discount) ||
+        discount < 0 ||
+        discount > 100
+    ) {
+
+        alert(
+            "Please enter a valid price and discount between 0 and 100%."
+        );
+
+        return;
+
+    }
+
+    let amount =
+        price * discount / 100;
+
+    let finalPrice =
+        price - amount;
+
+    document.getElementById("discountFinal")
+        .innerText = money(finalPrice);
+
+    document.getElementById("discountOriginal")
+        .innerText = money(price);
+
+    document.getElementById("discountAmount")
+        .innerText = money(amount);
+
+    document.getElementById("moneySaved")
+        .innerText = money(amount);
+
+}
+
+
+/* =====================================================
+   GST
+===================================================== */
+
+function calculateGST() {
+
+    let amount =
+        parseFloat(
+            document.getElementById("gstAmount").value
+        );
+
+    let rate =
+        parseFloat(
+            document.getElementById("gstRate").value
+        );
+
+    let type =
+        document.getElementById("gstType").value;
+
+    if (!amount || amount <= 0) {
+
+        alert("Please enter a valid amount.");
+
+        return;
+
+    }
+
+    let gst;
+    let finalAmount;
+
+    if (type === "add") {
+
+        gst =
+            amount * rate / 100;
+
+        finalAmount =
+            amount + gst;
+
+    } else {
+
+        finalAmount =
+            amount / (1 + rate / 100);
+
+        gst =
+            amount - finalAmount;
+
+    }
+
+    document.getElementById("gstFinal")
+        .innerText = money(finalAmount);
+
+    document.getElementById("gstOriginal")
+        .innerText = money(amount);
+
+    document.getElementById("gstValue")
+        .innerText = money(gst);
+
+    document.getElementById("gstRateResult")
+        .innerText = rate + "%";
+
+}
+
+
+/* =====================================================
+   SIP
+===================================================== */
+
+function calculateSIP() {
+
+    let monthly =
+        parseFloat(
+            document.getElementById("sipMonthly").value
+        );
+
+    let annualRate =
+        parseFloat(
+            document.getElementById("sipRate").value
+        );
+
+    let years =
+        parseFloat(
+            document.getElementById("sipYears").value
+        );
+
+    if (
+        !monthly ||
+        monthly <= 0 ||
+        isNaN(annualRate) ||
+        annualRate < 0 ||
+        !years ||
+        years <= 0
+    ) {
+
+        alert("Please enter valid SIP details.");
+
+        return;
+
+    }
+
+    let months = years * 12;
+
+    let monthlyRate =
+        annualRate / 12 / 100;
+
+    let futureValue;
+
+    if (monthlyRate === 0) {
+
+        futureValue =
+            monthly * months;
+
+    } else {
+
+        futureValue =
+            monthly *
+            (
+                (Math.pow(
+                    1 + monthlyRate,
+                    months
+                ) - 1)
+                / monthlyRate
+            ) *
+            (1 + monthlyRate);
+
+    }
+
+    let invested =
+        monthly * months;
+
+    let returns =
+        futureValue - invested;
+
+
+    document.getElementById("sipValue")
+        .innerText = money(futureValue);
+
+    document.getElementById("sipInvested")
+        .innerText = money(invested);
+
+    document.getElementById("sipReturns")
+        .innerText = money(returns);
+
+}
+
+
+/* =====================================================
+   SIMPLE INTEREST
+===================================================== */
+
+function calculateSI() {
+
+    let principal =
+        parseFloat(
+            document.getElementById("siPrincipal").value
+        );
+
+    let rate =
+        parseFloat(
+            document.getElementById("siRate").value
+        );
+
+    let time =
+        parseFloat(
+            document.getElementById("siTime").value
+        );
+
+    if (
+        !principal ||
+        principal <= 0 ||
+        isNaN(rate) ||
+        rate < 0 ||
+        !time ||
+        time <= 0
+    ) {
+
+        alert("Please enter valid values.");
+
+        return;
+
+    }
+
+    let interest =
+        principal * rate * time / 100;
+
+    let total =
+        principal + interest;
+
+    document.getElementById("siResult")
+        .innerText = money(interest);
+
+    document.getElementById("siTotal")
+        .innerText = money(total);
+
+}
+
+
+/* =====================================================
+   COMPOUND INTEREST
+===================================================== */
+
+function calculateCI() {
+
+    let principal =
+        parseFloat(
+            document.getElementById("ciPrincipal").value
+        );
+
+    let rate =
+        parseFloat(
+            document.getElementById("ciRate").value
+        );
+
+    let time =
+        parseFloat(
+            document.getElementById("ciTime").value
+        );
+
+    let compound =
+        parseFloat(
+            document.getElementById("ciCompound").value
+        );
+
+    if (
+        !principal ||
+        principal <= 0 ||
+        isNaN(rate) ||
+        rate < 0 ||
+        !time ||
+        time <= 0
+    ) {
+
+        alert("Please enter valid values.");
+
+        return;
+
+    }
+
+    let amount =
+        principal *
+        Math.pow(
+            1 + rate / (100 * compound),
+            compound * time
+        );
+
+    let interest =
+        amount - principal;
+
+    document.getElementById("ciResult")
+        .innerText = money(amount);
+
+    document.getElementById("ciInterest")
+        .innerText = money(interest);
+
+}
+
+
+/* =====================================================
+   PERCENTAGE
+===================================================== */
+
+function calculatePercentage() {
+
+    let percentage =
+        parseFloat(
+            document.getElementById("percentageValue").value
+        );
+
+    let number =
+        parseFloat(
+            document.getElementById("percentageNumber").value
+        );
+
+    if (
+        isNaN(percentage) ||
+        isNaN(number)
+    ) {
+
+        alert("Please enter valid values.");
+
+        return;
+
+    }
+
+    let result =
+        percentage * number / 100;
+
+    document.getElementById("percentageResult")
+        .innerText =
+        result.toLocaleString("en-IN", {
+            maximumFractionDigits: 4
+        });
+
+}
+
+
+/* =====================================================
+   AGE
+===================================================== */
+
+function calculateAge() {
+
+    let dobValue =
+        document.getElementById("dateOfBirth").value;
+
+    if (!dobValue) {
+
+        alert("Please select your date of birth.");
+
+        return;
+
+    }
+
+    let birthDate =
+        new Date(dobValue + "T00:00:00");
+
+    let today =
+        new Date();
+
+    if (birthDate > today) {
+
+        alert("Date of birth cannot be in the future.");
+
+        return;
+
+    }
+
+    let years =
+        today.getFullYear() -
+        birthDate.getFullYear();
+
+    let months =
+        today.getMonth() -
+        birthDate.getMonth();
+
+    let days =
+        today.getDate() -
+        birthDate.getDate();
+
+    if (days < 0) {
+
+        months--;
+
+        let previousMonth =
+            new Date(
+                today.getFullYear(),
+                today.getMonth(),
+                0
+            );
+
+        days += previousMonth.getDate();
+
+    }
+
+    if (months < 0) {
+
+        years--;
+
+        months += 12;
+
+    }
+
+    document.getElementById("ageResult")
+        .innerText =
+        years + " Years";
+
+    let nextBirthday =
+        new Date(
+            today.getFullYear(),
+            birthDate.getMonth(),
+            birthDate.getDate()
+        );
+
+    if (nextBirthday < today) {
+
+        nextBirthday =
+            new Date(
+                today.getFullYear() + 1,
+                birthDate.getMonth(),
+                birthDate.getDate()
+            );
+
+    }
+
+    let diff =
+        nextBirthday - today;
+
+    let daysLeft =
+        Math.ceil(
+            diff / (1000 * 60 * 60 * 24)
+        );
+
+    document.getElementById("nextBirthday")
+        .innerText =
+        daysLeft + " days";
+
+}
+
+
+/* =====================================================
+   BMI
+===================================================== */
+
+function calculateBMI() {
+
+    let weight =
+        parseFloat(
+            document.getElementById("bmiWeight").value
+        );
+
+    let height =
+        parseFloat(
+            document.getElementById("bmiHeight").value
+        );
+
+    if (
+        !weight ||
+        weight <= 0 ||
+        !height ||
+        height <= 0
+    ) {
+
+        alert("Please enter valid height and weight.");
+
+        return;
+
+    }
+
+    let heightMeter =
+        height / 100;
+
+    let bmi =
+        weight /
+        (heightMeter * heightMeter);
+
+    document.getElementById("bmiResult")
+        .innerText =
+        bmi.toFixed(1);
+
+    let status;
+
+    if (bmi < 18.5) {
+
+        status = "Underweight";
+
+    } else if (bmi < 25) {
+
+        status = "Normal weight";
+
+    } else if (bmi < 30) {
+
+        status = "Overweight";
+
+    } else {
+
+        status = "Obesity";
+
+    }
+
+    document.getElementById("bmiStatus")
+        .innerText = status;
+
+}
+
+
+/* =====================================================
+   WORD COUNTER
+===================================================== */
+
+function updateCounter() {
+
+    let text =
+        document.getElementById("counterText").value;
+
+    let trimmed =
+        text.trim();
+
+    let words =
+        trimmed === ""
+        ? 0
+        : trimmed.split(/\s+/).length;
+
+    let characters =
+        text.length;
+
+    let sentences =
+        trimmed === ""
+        ? 0
+        : trimmed.split(/[.!?]+/)
+            .filter(function(item) {
+                return item.trim() !== "";
+            }).length;
+
+    let paragraphs =
+        trimmed === ""
+        ? 0
+        : trimmed.split(/\n+/)
+            .filter(function(item) {
+                return item.trim() !== "";
+            }).length;
+
+    document.getElementById("wordCount")
+        .innerText = words;
+
+    document.getElementById("charCount")
+        .innerText = characters;
+
+    document.getElementById("sentenceCount")
+        .innerText = sentences;
+
+    document.getElementById("paragraphCount")
+        .innerText = paragraphs;
+
+}
+
+
+/* =====================================================
+   CASE CONVERTER
+===================================================== */
+
+function convertUpper() {
+
+    let text =
+        document.getElementById("caseText").value;
+
+    document.getElementById("caseResult")
+        .value =
+        text.toUpperCase();
+
+}
+
+
+function convertLower() {
+
+    let text =
+        document.getElementById("caseText").value;
+
+    document.getElementById("caseResult")
+        .value =
+        text.toLowerCase();
+
+}
+
+
+function convertTitle() {
+
+    let text =
+        document.getElementById("caseText").value;
+
+    let result =
+        text.toLowerCase()
+        .replace(/\b\w/g, function(letter) {
+
+            return letter.toUpperCase();
+
+        });
+
+    document.getElementById("caseResult")
+        .value = result;
+
+}
+
+
+/* =====================================================
+   PASSWORD GENERATOR
+===================================================== */
+
+function generatePassword() {
+
+    let length =
+        parseInt(
+            document.getElementById("passwordLength").value
+        );
+
+    if (
+        isNaN(length) ||
+        length < 6 ||
+        length > 50
+    ) {
+
+        alert("Password length must be between 6 and 50.");
+
+        return;
+
+    }
+
+    let characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+        "abcdefghijklmnopqrstuvwxyz" +
+        "0123456789" +
+        "!@#$%^&*()_+-=[]{}";
+
+    let password = "";
+
+    let randomValues =
+        new Uint32Array(length);
+
+    crypto.getRandomValues(randomValues);
+
+    for (
+        let i = 0;
+        i < length;
+        i++
+    ) {
+
+        password +=
+            characters[
+                randomValues[i] %
+                characters.length
+            ];
+
+    }
+
+    document.getElementById("generatedPassword")
+        .value = password;
+
+}
+
+
+function copyPassword() {
+
+    let input =
+        document.getElementById("generatedPassword");
+
+    if (!input.value) {
+
+        generatePassword();
+
+    }
+
+    input.select();
+
+    input.setSelectionRange(
+        0,
+        99999
+    );
+
+    navigator.clipboard.writeText(input.value)
+        .then(function() {
+
+            alert("Password copied!");
+
+        })
+        .catch(function() {
+
+            document.execCommand("copy");
+
+            alert("Password copied!");
+
+        });
+
+}
+
+
+/* =====================================================
+   DEFAULT PASSWORD
+===================================================== */
+
+window.addEventListener("load", function() {
+
+    generatePassword();
+
+});
+
+</script>
+
+</body>
+</html>
+```
