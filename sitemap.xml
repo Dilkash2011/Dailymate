@@ -8,4 +8,22 @@
         <changefreq>weekly</changefreq>
     </url>
 
+    <url>
+        <loc>https://dilkash2011.github.io/Dailymate/privacy.html</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>https://dilkash2011.github.io/Dailymate/terms.html</loc>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>https://dilkash2011.github.io/Dailymate/contact.html</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
 </urlset>
