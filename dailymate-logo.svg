@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 500 180">
+
+    <defs>
+        <linearGradient id="dmGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%">
+
+            <stop offset="0%"
+                  stop-color="#2563eb"/>
+
+            <stop offset="55%"
+                  stop-color="#06b6d4"/>
+
+            <stop offset="100%"
+                  stop-color="#10b981"/>
+
+        </linearGradient>
+    </defs>
+
+    <!-- DM Symbol -->
+
+    <rect x="15"
+          y="15"
+          width="150"
+          height="150"
+          rx="35"
+          fill="#ffffff"/>
+
+    <path d="M45 125
+             V55
+             H78
+             C112 55 125 75 125 90
+             C125 110 109 125 78 125
+             Z"
+          fill="url(#dmGradient)"/>
+
+    <path d="M78 76
+             H92
+             C105 76 112 82 112 91
+             C112 101 103 108 90 108
+             H78 Z"
+          fill="#0f172a"/>
+
+    <path d="M88 122
+             L111 67
+             L135 122
+             L121 122
+             L111 96
+             L101 122 Z"
+          fill="url(#dmGradient)"/>
+
+    <!-- Sun rays -->
+
+    <g stroke="#fbbf24"
+       stroke-width="8"
+       stroke-linecap="round">
+
+        <line x1="111" y1="42"
+              x2="111" y2="27"/>
+
+        <line x1="94" y1="47"
+              x2="85" y2="35"/>
+
+        <line x1="128" y1="47"
+              x2="137" y2="35"/>
+
+    </g>
+
+    <!-- DailyMate Text -->
+
+    <text x="190"
+          y="105"
+          font-family="Arial, Helvetica, sans-serif"
+          font-size="58"
+          font-weight="800"
+          fill="#0f172a">
+
+        Daily<tspan fill="#10b981">Mate</tspan>
+
+    </text>
+
+    <text x="192"
+          y="137"
+          font-family="Arial, Helvetica, sans-serif"
+          font-size="16"
+          font-weight="600"
+          fill="#64748b">
+
+        SMART TOOLS • EVERY DAY
+
+    </text>
+
+</svg>
