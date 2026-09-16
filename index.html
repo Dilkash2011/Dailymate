@@ -820,6 +820,28 @@
             </article>
 
 
+
+            <!-- Loan Calculator -->
+            <article class="tool-card"
+                     data-category="finance"
+                     data-name="loan calculator loan emi interest payment">
+
+                <div class="tool-icon">🏦</div>
+
+                <h3>Loan Calculator</h3>
+
+                <p>
+                    Calculate monthly loan EMI, total interest and total
+                    repayment amount for a personal or other loan.
+                </p>
+
+                <button class="tool-button"
+                        onclick="showCalculator('loan')">
+                    Calculate Loan
+                </button>
+
+            </article>
+
             <!-- Discount -->
 
             <article class="tool-card"
@@ -1122,6 +1144,49 @@
 
         </div>
 
+
+
+        <!-- LOAN CALCULATOR -->
+
+        <div class="calculator-section" id="calc-loan">
+
+            <div class="calculator-box">
+
+                <h2>Loan Calculator</h2>
+
+                <p class="calculator-description">
+                    Enter the loan amount, annual interest rate and tenure
+                    to estimate your monthly EMI and total repayment.
+                </p>
+
+                <div class="form-group">
+                    <label>Loan Amount (₹)</label>
+                    <input type="number" id="loanPrincipal"
+                           placeholder="Example: 300000">
+                </div>
+
+                <div class="form-group">
+                    <label>Annual Interest Rate (%)</label>
+                    <input type="number" id="loanRate"
+                           placeholder="Example: 10.5" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label>Loan Tenure (Years)</label>
+                    <input type="number" id="loanYears"
+                           placeholder="Example: 5" step="0.1">
+                </div>
+
+                <button class="calculate-btn"
+                        onclick="calculateLoan()">
+                    Calculate Loan
+                </button>
+
+                <div class="result" id="loanResult"></div>
+
+            </div>
+
+        </div>
 
         <!-- DISCOUNT -->
 
@@ -1914,6 +1979,59 @@
 
     }
 
+
+
+    /* ================= LOAN CALCULATOR ================= */
+
+    function calculateLoan() {
+
+        const principal =
+            parseFloat(document.getElementById("loanPrincipal").value);
+
+        const annualRate =
+            parseFloat(document.getElementById("loanRate").value);
+
+        const years =
+            parseFloat(document.getElementById("loanYears").value);
+
+        const result =
+            document.getElementById("loanResult");
+
+        if (!isFinite(principal) || principal <= 0 ||
+            !isFinite(annualRate) || annualRate < 0 ||
+            !isFinite(years) || years <= 0) {
+
+            result.style.display = "block";
+            result.textContent = "Please enter valid loan details.";
+            return;
+        }
+
+        const monthlyRate = annualRate / 12 / 100;
+        const months = Math.round(years * 12);
+
+        let emi;
+
+        if (monthlyRate === 0) {
+            emi = principal / months;
+        } else {
+            emi =
+                principal * monthlyRate *
+                Math.pow(1 + monthlyRate, months) /
+                (Math.pow(1 + monthlyRate, months) - 1);
+        }
+
+        const totalPayment = emi * months;
+        const totalInterest = totalPayment - principal;
+
+        result.style.display = "block";
+
+        result.innerHTML =
+            "Monthly EMI: ₹" + emi.toFixed(2) +
+            "<br>Total Interest: ₹" + totalInterest.toFixed(2) +
+            "<br>Total Payment: ₹" + totalPayment.toFixed(2) +
+            "<br>Loan Duration: " + months + " months";
+
+    }
 
     /* ================= DISCOUNT ================= */
 
